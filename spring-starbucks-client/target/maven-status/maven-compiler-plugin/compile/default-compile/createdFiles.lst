@@ -1,0 +1,6 @@
+com\example\springstarbucksclient\SpringStarbucksClientApplication.class
+com\example\springstarbucksclient\ConsoleCommand.class
+com\example\springstarbucksclient\model\Ping.class
+com\example\springstarbucksclient\model\Card.class
+com\example\springstarbucksclient\ConsoleController.class
+com\example\springstarbucksclient\model\Order.class

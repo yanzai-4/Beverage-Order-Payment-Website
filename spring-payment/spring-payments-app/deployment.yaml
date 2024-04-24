@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-payments-app-deployment
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      name: spring-payments-app
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      # unlike pod.yaml, the name is not included in the meta data as a unique name is
+      # generated from the deployment name
+      labels:
+        name: spring-payments-app
+    spec:
+      containers:
+      - name: spring-payments-app
+        image: yanzai4/spring-payments-app:v2.3
+        ports:
+          - containerPort: 8080
+

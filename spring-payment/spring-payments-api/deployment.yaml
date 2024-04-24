@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-payments-api-deployment
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      name: spring-payments-api
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      # unlike pod.yaml, the name is not included in the meta data as a unique name is
+      # generated from the deployment name
+      labels:
+        name: spring-payments-api
+    spec:
+      containers:
+      - name: spring-payments-api
+        image: yanzai4/spring-payments-api:v3.0
+        env:
+        - name: MYSQL_HOST
+          value: "10.6.144.7"
+        - name: MYSQL_NAME
+          value: "yan"
+        - name: MYSQL_PASSWORD
+          value: "322322"
+        - name: MERCHANT_KEY
+          value: "d3fb5ee7-2ca7-4735-9fe4-74c3170c2099"
+        - name: MERCHANT_SECRET_KEY
+          value: "qO7yMUGjmOjrOjnYhMm1tZFdf69lfcfhgnFjwr3+xUM="
+        - name: MERCHANT_ID
+          value: "yanzai4_sjsu0001"
+        ports:
+        - containerPort: 8080
+

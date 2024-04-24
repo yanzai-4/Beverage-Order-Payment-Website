@@ -1,0 +1,10 @@
+apiVersion: "extensions/v1beta1"
+kind: "Ingress"
+metadata:
+  name: "spring-payments-app-ingress"
+  namespace: "default"
+spec:
+  backend:
+    serviceName: "spring-payments-app-service"
+    servicePort: 8080
+
